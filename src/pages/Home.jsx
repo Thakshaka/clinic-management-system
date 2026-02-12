@@ -7,7 +7,7 @@ export default function Home() {
   const redirectDelay = Number(import.meta.env.VITE_REDIRECT_DELAY_MS || 5000)
 
   useEffect(() => {
-    const id = setTimeout(() => navigate('/login'), redirectDelay)
+    const id = setTimeout(() => navigate('/landing'), redirectDelay)
     return () => clearTimeout(id)
   }, [navigate, redirectDelay])
 

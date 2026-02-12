@@ -31,11 +31,13 @@ import PaymentProcessing from './pages/receptionist/billing/PaymentProcessing'
 import PaymentHistory from './pages/receptionist/billing/PaymentHistory'
 import InvoicePdfGenerator from './pages/receptionist/billing/InvoicePdfGenerator'
 import Reports from './pages/receptionist/billing/Reports'
+import LandingPage from './pages/LandingPage'
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/landing" element={<LandingPage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/signup/:role" element={<Signup />} />
