@@ -1,15 +1,15 @@
-# 🏥 Life Clinic Management System
+# 🏥 Asiri Healthcare Management System
 
-![Life Clinic Management System Banner](preview/logo.png)
+![Asiri Healthcare Management System Banner](preview/logo.png)
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-blue?style=for-the-badge&logo=vercel)](https://life-clinic-management-system.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-blue?style=for-the-badge&logo=vercel)](https://asiri-healthcare-clinic-management-system.vercel.app)
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com)
 [![React](https://img.shields.io/badge/React-19.1.1-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![Firebase](https://img.shields.io/badge/Firebase-12.1.0-FFCA28?style=for-the-badge&logo=firebase)](https://firebase.google.com/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.1.12-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-> 🚀 **Live Application**: [life-clinic-management-system.vercel.app](https://life-clinic-management-system.vercel.app)
+> 🚀 **Live Application**: [asiri-healthcare-clinic-management-system.vercel.app](https://asiri-healthcare-clinic-management-system.vercel.app)
 
 A modern, secure, and feature-rich clinic management system built with React 19, Firebase, and Tailwind CSS. Streamline your healthcare operations with comprehensive patient management, appointment scheduling, prescription management, billing systems, and role-based access control.
 
@@ -81,7 +81,7 @@ Our clinic management system is built with cutting-edge technologies to ensure p
 
 ## 🌟 Live Demo
 
-Experience the application live at: **[life-clinic-management-system.vercel.app](https://life-clinic-management-system.vercel.app)**
+Experience the application live at: **[asiri-healthcare-clinic-management-system.vercel.app](https://asiri-healthcare-clinic-management-system.vercel.app)**
 
 ### 🧪 Test Accounts
 - **Doctor**: Create a new account with Doctor role
@@ -89,7 +89,7 @@ Experience the application live at: **[life-clinic-management-system.vercel.app]
 
 ## 📸 Application Preview
 
-Here's a comprehensive preview of all the key features and interfaces in the Life Clinic Management System:
+Here's a comprehensive preview of all the key features and interfaces in the Asiri Healthcare Management System:
 
 | Feature | Preview |
 |:--------:|:-------:|
@@ -116,7 +116,7 @@ Here's a comprehensive preview of all the key features and interfaces in the Lif
 
 ### 1. Clone and Install
 ```bash
-git clone https://github.com/dhruvpatel16120/clinic-management-system.git
+git clone https://github.com/thakshaka/clinic-management-system.git
 cd clinic-management-system
 npm install
 ```
@@ -257,7 +257,7 @@ src/
 ## 🌐 Deployment
 
 This application is deployed on **Vercel** and is live at:
-**[life-clinic-management-system.vercel.app](https://life-clinic-management-system.vercel.app)**
+**[asiri-healthcare-clinic-management-system.vercel.app](https://asiri-healthcare-clinic-management-system.vercel.app)**
 
 
 ## 🔒 Security Features
@@ -342,9 +342,9 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 👨‍💻 Author
 
-**Dhruv Patel**
-- GitHub: [@dhruvpatel16120](https://github.com/dhruvpatel16120)
-- Live Demo: [life-clinic-management-system.vercel.app](https://life-clinic-management-system.vercel.app)
+**Thakshaka Rathnayake**
+- GitHub: [@thakshaka](https://github.com/thakshaka)
+- Live Demo: [asiri-healthcare-clinic-management-system.vercel.app](https://asiri-healthcare-clinic-management-system.vercel.app)
 
 ## 🙏 Acknowledgments
 
@@ -359,7 +359,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 If you have any questions or need help:
 
 1. **Check** the [Documentation](DOCUMENTATION.md)
-2. **Open** an [Issue](https://github.com/dhruvpatel16120/clinic-management-system/issues)
+2. **Open** an [Issue](https://github.com/thakshaka/clinic-management-system/issues)
 3. **Star** the repository if you find it helpful
 
 ---
@@ -368,8 +368,8 @@ If you have any questions or need help:
 
 **⭐ Star this repository if it helped you! ⭐**
 
-[![GitHub stars](https://img.shields.io/github/stars/dhruvpatel16120/clinic-management-system?style=social)](https://github.com/dhruvpatel16120/clinic-management-system)
-[![GitHub forks](https://img.shields.io/github/forks/dhruvpatel16120/clinic-management-system?style=social)](https://github.com/dhruvpatel16120/clinic-management-system)
-[![GitHub issues](https://img.shields.io/github/issues/dhruvpatel16120/clinic-management-system)](https://github.com/dhruvpatel16120/clinic-management-system/issues)
+[![GitHub stars](https://img.shields.io/github/stars/thakshaka/clinic-management-system?style=social)](https://github.com/thakshaka/clinic-management-system)
+[![GitHub forks](https://img.shields.io/github/forks/thakshaka/clinic-management-system?style=social)](https://github.com/thakshaka/clinic-management-system)
+[![GitHub issues](https://img.shields.io/github/issues/thakshaka/clinic-management-system)](https://github.com/thakshaka/clinic-management-system/issues)
 
 </div>

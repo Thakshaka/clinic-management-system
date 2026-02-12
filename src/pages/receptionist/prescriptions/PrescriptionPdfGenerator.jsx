@@ -16,13 +16,13 @@ export const generatePrescriptionPDF = (prescription) => {
   // Add clinic header
   doc.setFontSize(24)
   doc.setTextColor(0, 0, 139) // Dark blue
-  doc.text('LIFE CLINIC', 105, 20, { align: 'center' })
+  doc.text('Asiri Healthcare', 105, 20, { align: 'center' })
   
   doc.setFontSize(12)
   doc.setTextColor(100, 100, 100)
   doc.text('Professional Healthcare Services', 105, 30, { align: 'center' })
   doc.text('123 Medical Center Drive, Healthcare City, HC 12345', 105, 37, { align: 'center' })
-  doc.text('Phone: (555) 123-4567 | Email: info@lifeclinic.com', 105, 44, { align: 'center' })
+  doc.text('Phone: (555) 123-4567 | Email: info@asiri-healthcareclinic.com', 105, 44, { align: 'center' })
 
   // Add prescription header
   doc.setFontSize(18)

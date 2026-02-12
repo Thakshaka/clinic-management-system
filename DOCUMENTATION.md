@@ -1,6 +1,6 @@
-# 📚 Life Clinic Management System - Technical Documentation
+# 📚 Asiri Healthcare Management System - Technical Documentation
 
-> Comprehensive technical documentation for the Life Clinic Management System
+> Comprehensive technical documentation for the Asiri Healthcare Management System
 
 ## 📋 Table of Contents
 
@@ -21,7 +21,7 @@
 
 ## 🏗️ System Overview
 
-The Life Clinic Management System is a full-stack web application built with modern web technologies. It provides comprehensive healthcare management capabilities including patient management, appointment scheduling, prescription management, billing, and role-based access control.
+The Asiri Healthcare Management System is a full-stack web application built with modern web technologies. It provides comprehensive healthcare management capabilities including patient management, appointment scheduling, prescription management, billing, and role-based access control.
 
 ### Key Features
 - **Multi-role Authentication**: Doctor and Receptionist roles
@@ -66,7 +66,7 @@ The Life Clinic Management System is a full-stack web application built with mod
 ## 🚀 Installation & Setup Guide
 
 ### Prerequisites
-Before setting up the Life Clinic Management System, ensure you have the following:
+Before setting up the Asiri Healthcare Management System, ensure you have the following:
 
 - **Node.js** (v16 or higher) - [Download here](https://nodejs.org/)
 - **npm** or **yarn** package manager
@@ -85,7 +85,7 @@ Before setting up the Life Clinic Management System, ensure you have the followi
 #### 1. **Clone the Repository**
 ```bash
 # Clone the main repository
-git clone https://github.com/dhruvpatel16120/clinic-management-system.git
+git clone https://github.com/thakshaka/clinic-management-system.git
 
 # Navigate to project directory
 cd clinic-management-system
@@ -110,7 +110,7 @@ npm list --depth=0
 ##### 3.1 Create Firebase Project
 1. Go to [Firebase Console](https://console.firebase.google.com/)
 2. Click **"Create a project"**
-3. Enter project name: `life-clinic-management-system`
+3. Enter project name: `asiri-healthcare-clinic-management-system`
 4. Enable Google Analytics (optional but recommended)
 5. Click **"Create project"**
 
@@ -1021,9 +1021,9 @@ test(auth): add authentication flow tests
 
 ## 📞 Support & Contact
 
-- **GitHub Issues**: [Report bugs or request features](https://github.com/dhruvpatel16120/clinic-management-system/issues)
+- **GitHub Issues**: [Report bugs or request features](https://github.com/thakshaka/clinic-management-system/issues)
 - **Documentation**: This file and README.md
-- **Live Demo**: [life-clinic-management-system.vercel.app](https://life-clinic-management-system.vercel.app)
+- **Live Demo**: [asiri-healthcare-clinic-management-system.vercel.app](https://asiri-healthcare-clinic-management-system.vercel.app)
 
 ## 📄 License
 
