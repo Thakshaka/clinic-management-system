@@ -241,6 +241,27 @@ export default function Signup() {
                       <span className="text-sm font-medium">Admin</span>
                     </div>
                   </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setSelectedRole('pharmacist')}
+                    className={`relative p-4 rounded-2xl border-2 transition-all duration-300 ${
+                      selectedRole === 'pharmacist'
+                        ? 'border-orange-400 bg-orange-400/10 shadow-lg shadow-orange-400/20'
+                        : 'border-white/20 bg-white/5 hover:border-white/40 hover:bg-white/10'
+                    }`}
+                  >
+                    <div className="flex flex-col items-center space-y-2">
+                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                        selectedRole === 'pharmacist'
+                          ? 'bg-orange-400 text-slate-900'
+                          : 'bg-white/10 text-slate-300'
+                      }`}>
+                        <FaPrescriptionBottle className="w-6 h-6" />
+                      </div>
+                      <span className="text-sm font-medium">Pharmacist</span>
+                    </div>
+                  </button>
                 </div>
                 {errors.role && (
                   <p className="text-sm text-red-400">{errors.role}</p>
