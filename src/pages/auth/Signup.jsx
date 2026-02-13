@@ -9,7 +9,13 @@ export default function Signup() {
   const { signup } = useAuth()
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-  const [selectedRole, setSelectedRole] = useState(initialRole || '')
+  
+  // Check if patient-only signup mode is enabled
+  const patientOnlyMode = import.meta.env.VITE_PATIENT_ONLY_SIGNUP === 'true'
+  
+  // Auto-select patient role in patient-only mode, otherwise use initialRole or empty
+  const [selectedRole, setSelectedRole] = useState(patientOnlyMode ? 'patient' : (initialRole || ''))
+  
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -26,6 +32,9 @@ export default function Signup() {
     admin: { title: 'Admin', icon: FaUserShield, description: 'Manage users, system maintenance, and generate comprehensive reports' },
     pharmacist: { title: 'Pharmacist', icon: FaPrescriptionBottle, description: 'Manage inventory, view prescriptions, and issue medications' }
   }
+  
+  // Get available roles based on mode
+  const availableRoles = patientOnlyMode ? ['patient'] : ['doctor', 'receptionist', 'patient', 'admin', 'pharmacist']
 
   const currentRole = roleMeta[selectedRole] || null
   const IconComponent = currentRole?.icon || FaHospital
@@ -152,116 +161,126 @@ export default function Signup() {
           {/* Form Card */}
           <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 shadow-2xl shadow-black/20">
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Professional Role Selection */}
-              <div className="space-y-3">
-                <label className="block text-sm font-semibold text-slate-200">
-                  Professional Role
-                </label>
-                <div className="grid grid-cols-2 gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setSelectedRole('doctor')}
-                    className={`relative p-4 rounded-2xl border-2 transition-all duration-300 ${
-                      selectedRole === 'doctor'
-                        ? 'border-blue-400 bg-blue-400/10 shadow-lg shadow-blue-400/20'
-                        : 'border-white/20 bg-white/5 hover:border-white/40 hover:bg-white/10'
-                    }`}
-                  >
-                    <div className="flex flex-col items-center space-y-2">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                {/* Role Selection */}
+                <div className="space-y-3">
+                  <label className="block text-sm font-semibold text-slate-200">
+                    {patientOnlyMode ? 'Patient Registration' : 'Select Your Role'}
+                  </label>
+                  <div className={`grid gap-3 ${patientOnlyMode ? 'grid-cols-1 max-w-xs mx-auto' : 'grid-cols-2 md:grid-cols-3'}`}>
+                  {availableRoles.includes('doctor') && (
+                    <button
+                      type="button"
+                      onClick={() => setSelectedRole('doctor')}
+                      className={`relative p-4 rounded-2xl border-2 transition-all duration-300 ${
                         selectedRole === 'doctor'
-                          ? 'bg-blue-400 text-slate-900'
-                          : 'bg-white/10 text-slate-300'
-                      }`}>
-                        <FaUserDoctor className="w-6 h-6" />
+                          ? 'border-blue-400 bg-blue-400/10 shadow-lg shadow-blue-400/20'
+                          : 'border-white/20 bg-white/5 hover:border-white/40 hover:bg-white/10'
+                      }`}
+                    >
+                      <div className="flex flex-col items-center space-y-2">
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                          selectedRole === 'doctor'
+                            ? 'bg-blue-400 text-slate-900'
+                            : 'bg-white/10 text-slate-300'
+                        }`}>
+                          <FaUserDoctor className="w-6 h-6" />
+                        </div>
+                        <span className="text-sm font-medium">Doctor</span>
                       </div>
-                      <span className="text-sm font-medium">Doctor</span>
-                    </div>
-                  </button>
+                    </button>
+                  )}
                   
-                  <button
-                    type="button"
-                    onClick={() => setSelectedRole('receptionist')}
-                    className={`relative p-4 rounded-2xl border-2 transition-all duration-300 ${
-                      selectedRole === 'receptionist'
-                        ? 'border-blue-400 bg-blue-400/10 shadow-lg shadow-blue-400/20'
-                        : 'border-white/20 bg-white/5 hover:border-white/40 hover:bg-white/10'
-                    }`}
-                  >
-                    <div className="flex flex-col items-center space-y-2">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                  {availableRoles.includes('receptionist') && (
+                    <button
+                      type="button"
+                      onClick={() => setSelectedRole('receptionist')}
+                      className={`relative p-4 rounded-2xl border-2 transition-all duration-300 ${
                         selectedRole === 'receptionist'
-                          ? 'bg-blue-400 text-slate-900'
-                          : 'bg-white/10 text-slate-300'
-                      }`}>
-                        <FaUserTie className="w-6 h-6" />
+                          ? 'border-blue-400 bg-blue-400/10 shadow-lg shadow-blue-400/20'
+                          : 'border-white/20 bg-white/5 hover:border-white/40 hover:bg-white/10'
+                      }`}
+                    >
+                      <div className="flex flex-col items-center space-y-2">
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                          selectedRole === 'receptionist'
+                            ? 'bg-blue-400 text-slate-900'
+                            : 'bg-white/10 text-slate-300'
+                        }`}>
+                          <FaUserTie className="w-6 h-6" />
+                        </div>
+                        <span className="text-sm font-medium">Receptionist</span>
                       </div>
-                      <span className="text-sm font-medium">Receptionist</span>
-                    </div>
-                  </button>
+                    </button>
+                  )}
 
-                  <button
-                    type="button"
-                    onClick={() => setSelectedRole('patient')}
-                    className={`relative p-4 rounded-2xl border-2 transition-all duration-300 ${
-                      selectedRole === 'patient'
-                        ? 'border-blue-400 bg-blue-400/10 shadow-lg shadow-blue-400/20'
-                        : 'border-white/20 bg-white/5 hover:border-white/40 hover:bg-white/10'
-                    }`}
-                  >
-                    <div className="flex flex-col items-center space-y-2">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                  {availableRoles.includes('patient') && (
+                    <button
+                      type="button"
+                      onClick={() => setSelectedRole('patient')}
+                      className={`relative p-4 rounded-2xl border-2 transition-all duration-300 ${
                         selectedRole === 'patient'
-                          ? 'bg-blue-400 text-slate-900'
-                          : 'bg-white/10 text-slate-300'
-                      }`}>
-                        <FaUserInjured className="w-6 h-6" />
+                          ? 'border-blue-400 bg-blue-400/10 shadow-lg shadow-blue-400/20'
+                          : 'border-white/20 bg-white/5 hover:border-white/40 hover:bg-white/10'
+                      }`}
+                    >
+                      <div className="flex flex-col items-center space-y-2">
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                          selectedRole === 'patient'
+                            ? 'bg-blue-400 text-slate-900'
+                            : 'bg-white/10 text-slate-300'
+                        }`}>
+                          <FaUserInjured className="w-6 h-6" />
+                        </div>
+                        <span className="text-sm font-medium">Patient</span>
                       </div>
-                      <span className="text-sm font-medium">Patient</span>
-                    </div>
-                  </button>
+                    </button>
+                  )}
 
-                  <button
-                    type="button"
-                    onClick={() => setSelectedRole('admin')}
-                    className={`relative p-4 rounded-2xl border-2 transition-all duration-300 ${
-                      selectedRole === 'admin'
-                        ? 'border-blue-400 bg-blue-400/10 shadow-lg shadow-blue-400/20'
-                        : 'border-white/20 bg-white/5 hover:border-white/40 hover:bg-white/10'
-                    }`}
-                  >
-                    <div className="flex flex-col items-center space-y-2">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                  {availableRoles.includes('admin') && (
+                    <button
+                      type="button"
+                      onClick={() => setSelectedRole('admin')}
+                      className={`relative p-4 rounded-2xl border-2 transition-all duration-300 ${
                         selectedRole === 'admin'
-                          ? 'bg-blue-400 text-slate-900'
-                          : 'bg-white/10 text-slate-300'
-                      }`}>
-                        <FaUserShield className="w-6 h-6" />
+                          ? 'border-blue-400 bg-blue-400/10 shadow-lg shadow-blue-400/20'
+                          : 'border-white/20 bg-white/5 hover:border-white/40 hover:bg-white/10'
+                      }`}
+                    >
+                      <div className="flex flex-col items-center space-y-2">
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                          selectedRole === 'admin'
+                            ? 'bg-blue-400 text-slate-900'
+                            : 'bg-white/10 text-slate-300'
+                        }`}>
+                          <FaUserShield className="w-6 h-6" />
+                        </div>
+                        <span className="text-sm font-medium">Admin</span>
                       </div>
-                      <span className="text-sm font-medium">Admin</span>
-                    </div>
-                  </button>
+                    </button>
+                  )}
 
-                  <button
-                    type="button"
-                    onClick={() => setSelectedRole('pharmacist')}
-                    className={`relative p-4 rounded-2xl border-2 transition-all duration-300 ${
-                      selectedRole === 'pharmacist'
-                        ? 'border-orange-400 bg-orange-400/10 shadow-lg shadow-orange-400/20'
-                        : 'border-white/20 bg-white/5 hover:border-white/40 hover:bg-white/10'
-                    }`}
-                  >
-                    <div className="flex flex-col items-center space-y-2">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                  {availableRoles.includes('pharmacist') && (
+                    <button
+                      type="button"
+                      onClick={() => setSelectedRole('pharmacist')}
+                      className={`relative p-4 rounded-2xl border-2 transition-all duration-300 ${
                         selectedRole === 'pharmacist'
-                          ? 'bg-orange-400 text-slate-900'
-                          : 'bg-white/10 text-slate-300'
-                      }`}>
-                        <FaPrescriptionBottle className="w-6 h-6" />
+                          ? 'border-orange-400 bg-orange-400/10 shadow-lg shadow-orange-400/20'
+                          : 'border-white/20 bg-white/5 hover:border-white/40 hover:bg-white/10'
+                      }`}
+                    >
+                      <div className="flex flex-col items-center space-y-2">
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                          selectedRole === 'pharmacist'
+                            ? 'bg-orange-400 text-slate-900'
+                            : 'bg-white/10 text-slate-300'
+                        }`}>
+                          <FaPrescriptionBottle className="w-6 h-6" />
+                        </div>
+                        <span className="text-sm font-medium">Pharmacist</span>
                       </div>
-                      <span className="text-sm font-medium">Pharmacist</span>
-                    </div>
-                  </button>
+                    </button>
+                  )}
                 </div>
                 {errors.role && (
                   <p className="text-sm text-red-400">{errors.role}</p>
