@@ -368,7 +368,7 @@ export default function Medicines() {
                     </div>
                     {medicine.price && (
                       <div className="flex items-center space-x-2">
-                        <span className="text-slate-400">₹</span>
+                        <span className="text-slate-400">LKR</span>
                         <span className="text-slate-300">{medicine.price}</span>
                       </div>
                     )}
@@ -490,7 +490,7 @@ export default function Medicines() {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-2">Price (₹)</label>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">Price (LKR)</label>
                   <input
                     type="number"
                     step="0.01"

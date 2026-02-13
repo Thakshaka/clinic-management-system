@@ -608,7 +608,7 @@ export default function CreateInvoice() {
                       className="bg-white/5 hover:bg-white/10 border border-white/10 text-white px-3 py-2 rounded-lg transition-colors text-left"
                     >
                       <div className="font-medium text-sm">{service.description}</div>
-                      <div className="text-xs text-slate-400">₹{service.unitPrice}</div>
+                      <div className="text-xs text-slate-400">LKR{service.unitPrice}</div>
                     </button>
                   ))}
                 </div>
@@ -674,7 +674,7 @@ export default function CreateInvoice() {
 
                   <div className="col-span-2">
                     <label className="block text-sm font-medium text-slate-300 mb-2">
-                      Unit Price (₹)
+                      Unit Price (LKR)
                     </label>
                     <input
                       type="number"
@@ -688,7 +688,7 @@ export default function CreateInvoice() {
 
                   <div className="col-span-1">
                     <label className="block text-sm font-medium text-slate-300 mb-2">
-                      Amount (₹)
+                      Amount (LKR)
                     </label>
                     <div className="px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-green-400 font-medium">
                       {item.amount?.toLocaleString() || '0'}
@@ -734,7 +734,7 @@ export default function CreateInvoice() {
 
                 <div>
                   <label className="block text-sm font-medium text-slate-300 mb-2">
-                    Discount (₹)
+                    Discount (LKR)
                   </label>
                   <input
                     type="number"
@@ -763,20 +763,20 @@ export default function CreateInvoice() {
               <div className="bg-white/10 rounded-lg p-4 space-y-3">
                 <div className="flex justify-between">
                   <span className="text-slate-300">Subtotal:</span>
-                  <span className="font-medium">₹{invoiceData.subtotal.toLocaleString()}</span>
+                  <span className="font-medium">LKR{invoiceData.subtotal.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-300">Tax ({invoiceData.taxRate}%):</span>
-                  <span className="font-medium">₹{invoiceData.taxAmount.toLocaleString()}</span>
+                  <span className="font-medium">LKR{invoiceData.taxAmount.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-300">Discount:</span>
-                  <span className="font-medium text-red-400">-₹{invoiceData.discount.toLocaleString()}</span>
+                  <span className="font-medium text-red-400">-LKR{invoiceData.discount.toLocaleString()}</span>
                 </div>
                 <div className="border-t border-white/20 pt-3">
                   <div className="flex justify-between text-lg font-bold">
                     <span>Total Amount:</span>
-                    <span className="text-green-400">₹{invoiceData.totalAmount.toLocaleString()}</span>
+                    <span className="text-green-400">LKR{invoiceData.totalAmount.toLocaleString()}</span>
                   </div>
                 </div>
               </div>

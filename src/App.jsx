@@ -3,8 +3,10 @@ import Home from './pages/Home'
 import Login from './pages/auth/Login'
 import Doctor from './pages/doctor/Doctor'
 import Receptionist from './pages/receptionist/Receptionist'
+import Patient from './pages/patient/Patient'
 import DoctorAppointments from './pages/doctor/appointment/Appointments'
 import ReceptionistAppointments from './pages/receptionist/appointment/Appointments'
+import PatientAppointments from './pages/patient/appointment/Appointments'
 import Signup from './pages/auth/Signup'
 import ForgotPasswordForm from './pages/auth/ForgotPasswordForm'
 import VerifyEmail from './pages/auth/VerifyEmail'
@@ -22,6 +24,13 @@ import ReceptionistViewPrescription from './pages/receptionist/prescriptions/Vie
 import TokenManagement from './pages/receptionist/token/TokenManagement'
 import TokenQueue from './pages/doctor/token/TokenQueue'
 import TokenDisplay from './components/TokenDisplay'
+
+// Patient Pages
+import PatientPrescriptions from './pages/patient/prescriptions/Prescriptions'
+import PatientViewPrescription from './pages/patient/prescriptions/ViewPrescription'
+import MedicalHistory from './pages/patient/history/MedicalHistory'
+import PatientProfile from './pages/patient/profile/Profile'
+import ChatAssistant from './pages/patient/chat/ChatAssistant'
 
 // Receptionist Billing Pages
 import BillingDashboard from './pages/receptionist/billing/BillingDashboard'
@@ -165,6 +174,43 @@ function App() {
       <Route path="/receptionist/billing/reports" element={
         <ProtectedRoute requiredRole="receptionist">
           <Reports />
+        </ProtectedRoute>
+      } />
+
+      {/* Patient Routes */}
+      <Route path="/patient" element={
+        <ProtectedRoute requiredRole="patient">
+          <Patient />
+        </ProtectedRoute>
+      } />
+      <Route path="/patient/appointments" element={
+        <ProtectedRoute requiredRole="patient">
+          <PatientAppointments />
+        </ProtectedRoute>
+      } />
+      <Route path="/patient/prescriptions" element={
+        <ProtectedRoute requiredRole="patient">
+          <PatientPrescriptions />
+        </ProtectedRoute>
+      } />
+      <Route path="/patient/prescriptions/view/:id" element={
+        <ProtectedRoute requiredRole="patient">
+          <PatientViewPrescription />
+        </ProtectedRoute>
+      } />
+      <Route path="/patient/history" element={
+        <ProtectedRoute requiredRole="patient">
+          <MedicalHistory />
+        </ProtectedRoute>
+      } />
+      <Route path="/patient/profile" element={
+        <ProtectedRoute requiredRole="patient">
+          <PatientProfile />
+        </ProtectedRoute>
+      } />
+      <Route path="/patient/chat" element={
+        <ProtectedRoute requiredRole="patient">
+          <ChatAssistant />
         </ProtectedRoute>
       } />
 

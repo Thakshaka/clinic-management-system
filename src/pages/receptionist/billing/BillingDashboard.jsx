@@ -166,7 +166,7 @@ export default function BillingDashboard() {
               <TrendingUp className="w-6 h-6 text-green-400" />
               <h3 className="text-lg font-semibold">Total Revenue</h3>
             </div>
-            <p className="text-3xl font-bold text-green-400">₹{stats.totalRevenue.toLocaleString()}</p>
+            <p className="text-3xl font-bold text-green-400">LKR{stats.totalRevenue.toLocaleString()}</p>
             <p className="text-sm text-slate-400 mt-2">All time</p>
           </div>
 
@@ -175,7 +175,7 @@ export default function BillingDashboard() {
               <Calendar className="w-6 h-6 text-purple-400" />
               <h3 className="text-lg font-semibold">Today's Revenue</h3>
             </div>
-            <p className="text-3xl font-bold text-purple-400">₹{stats.todayRevenue.toLocaleString()}</p>
+            <p className="text-3xl font-bold text-purple-400">LKR{stats.todayRevenue.toLocaleString()}</p>
             <p className="text-sm text-slate-400 mt-2">Today</p>
           </div>
         </div>
@@ -187,7 +187,7 @@ export default function BillingDashboard() {
                              <Banknote className="w-6 h-6 text-green-400" />
                <h3 className="text-lg font-semibold">Cash Payments</h3>
             </div>
-            <p className="text-2xl font-bold text-green-400">₹{stats.cashPayments.toLocaleString()}</p>
+            <p className="text-2xl font-bold text-green-400">LKR{stats.cashPayments.toLocaleString()}</p>
             <p className="text-sm text-slate-400 mt-2">Total cash received</p>
           </div>
 
@@ -196,7 +196,7 @@ export default function BillingDashboard() {
               <CreditCard className="w-6 h-6 text-blue-400" />
               <h3 className="text-lg font-semibold">Card Payments</h3>
             </div>
-            <p className="text-2xl font-bold text-blue-400">₹{stats.cardPayments.toLocaleString()}</p>
+            <p className="text-2xl font-bold text-blue-400">LKR{stats.cardPayments.toLocaleString()}</p>
             <p className="text-sm text-slate-400 mt-2">Total card payments</p>
           </div>
 
@@ -205,7 +205,7 @@ export default function BillingDashboard() {
               <Globe className="w-6 h-6 text-purple-400" />
               <h3 className="text-lg font-semibold">Online Payments</h3>
             </div>
-            <p className="text-2xl font-bold text-purple-400">₹{stats.onlinePayments.toLocaleString()}</p>
+            <p className="text-2xl font-bold text-purple-400">LKR{stats.onlinePayments.toLocaleString()}</p>
             <p className="text-sm text-slate-400 mt-2">Total online payments</p>
           </div>
         </div>
@@ -308,7 +308,7 @@ export default function BillingDashboard() {
                         </div>
                       </td>
                       <td className="py-3 px-4">
-                        <span className="font-bold text-green-400">₹{invoice.totalAmount?.toLocaleString()}</span>
+                        <span className="font-bold text-green-400">LKR{invoice.totalAmount?.toLocaleString()}</span>
                       </td>
                       <td className="py-3 px-4">
                         <span className={`px-2 py-1 rounded-full text-xs font-medium ${

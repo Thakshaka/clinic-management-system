@@ -435,7 +435,7 @@ export default function Reports() {
               <DollarSign className="w-6 h-6 text-green-400" />
               <h3 className="text-lg font-semibold">Total Amount</h3>
             </div>
-            <p className="text-3xl font-bold text-green-400">₹{stats.totalAmount.toLocaleString()}</p>
+            <p className="text-3xl font-bold text-green-400">LKR{stats.totalAmount.toLocaleString()}</p>
             <p className="text-sm text-slate-400 mt-2">Invoice value</p>
           </div>
 
@@ -455,7 +455,7 @@ export default function Reports() {
               <CheckCircle className="w-6 h-6 text-purple-400" />
               <h3 className="text-lg font-semibold">Total Payments</h3>
             </div>
-            <p className="text-3xl font-bold text-purple-400">₹{stats.totalPaymentAmount.toLocaleString()}</p>
+            <p className="text-3xl font-bold text-purple-400">LKR{stats.totalPaymentAmount.toLocaleString()}</p>
             <p className="text-sm text-slate-400 mt-2">Received amount</p>
           </div>
         </div>
@@ -518,7 +518,7 @@ export default function Reports() {
                     <span className="capitalize">{method}</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <span className="font-medium">₹{amount.toLocaleString()}</span>
+                    <span className="font-medium">LKR{amount.toLocaleString()}</span>
                     <span className="text-sm text-slate-400">({stats.totalPaymentAmount > 0 ? ((amount / stats.totalPaymentAmount) * 100).toFixed(1) : 0}%)</span>
                   </div>
                 </div>
@@ -543,7 +543,7 @@ export default function Reports() {
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="font-medium text-green-400">₹{payment.amount?.toLocaleString()}</p>
+                  <p className="font-medium text-green-400">LKR{payment.amount?.toLocaleString()}</p>
                   <p className="text-sm text-slate-400 capitalize">{payment.method}</p>
                 </div>
               </div>

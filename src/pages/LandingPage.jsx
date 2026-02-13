@@ -176,7 +176,7 @@ export default function LandingPage() {
              
              <div className="relative z-10">
                <div className="inline-flex items-center justify-center p-3 rounded-full bg-cyan-500/10 mb-6">
-                 <div className="h-6 w-6 text-cyan-400 font-bold text-xl">✨</div>
+                 <div className="h-6 w-6 text-cyan-400 font-bold text-xl">AI</div>
                </div>
                <h3 className="text-2xl font-bold text-white mb-4">AI-Powered Assistant</h3>
                <p className="text-slate-400 max-w-2xl mx-auto mb-0">

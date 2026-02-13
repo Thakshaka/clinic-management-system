@@ -333,7 +333,7 @@ export default function InvoiceList() {
                           </div>
                         </td>
                         <td className="py-3 px-4">
-                          <span className="font-bold text-green-400">₹{invoice.totalAmount?.toLocaleString()}</span>
+                          <span className="font-bold text-green-400">LKR{invoice.totalAmount?.toLocaleString()}</span>
                         </td>
                         <td className="py-3 px-4">
                           <div className="flex items-center space-x-2">

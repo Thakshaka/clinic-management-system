@@ -276,7 +276,7 @@ export default function PaymentHistory() {
               <h3 className="text-lg font-semibold">Total Payments</h3>
             </div>
             <p className="text-3xl font-bold text-green-400">{analytics.totalPayments}</p>
-            <p className="text-sm text-slate-400 mt-2">₹{analytics.totalAmount.toLocaleString()}</p>
+            <p className="text-sm text-slate-400 mt-2">LKR{analytics.totalAmount.toLocaleString()}</p>
           </div>
 
           <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-xl">
@@ -285,7 +285,7 @@ export default function PaymentHistory() {
               <h3 className="text-lg font-semibold">Today</h3>
             </div>
             <p className="text-3xl font-bold text-blue-400">{analytics.todayPayments}</p>
-            <p className="text-sm text-slate-400 mt-2">₹{analytics.todayAmount.toLocaleString()}</p>
+            <p className="text-sm text-slate-400 mt-2">LKR{analytics.todayAmount.toLocaleString()}</p>
           </div>
 
           <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-xl">
@@ -294,7 +294,7 @@ export default function PaymentHistory() {
               <h3 className="text-lg font-semibold">This Week</h3>
             </div>
             <p className="text-3xl font-bold text-purple-400">{analytics.weekPayments}</p>
-            <p className="text-sm text-slate-400 mt-2">₹{analytics.weekAmount.toLocaleString()}</p>
+            <p className="text-sm text-slate-400 mt-2">LKR{analytics.weekAmount.toLocaleString()}</p>
           </div>
 
           <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-xl">
@@ -303,7 +303,7 @@ export default function PaymentHistory() {
               <h3 className="text-lg font-semibold">This Month</h3>
             </div>
             <p className="text-3xl font-bold text-yellow-400">{analytics.monthPayments}</p>
-            <p className="text-sm text-slate-400 mt-2">₹{analytics.monthAmount.toLocaleString()}</p>
+            <p className="text-sm text-slate-400 mt-2">LKR{analytics.monthAmount.toLocaleString()}</p>
           </div>
         </div>
 
@@ -314,7 +314,7 @@ export default function PaymentHistory() {
                              <Banknote className="w-6 h-6 text-green-400" />
                <h3 className="text-lg font-semibold">Cash Payments</h3>
             </div>
-            <p className="text-2xl font-bold text-green-400">₹{analytics.cashPayments.toLocaleString()}</p>
+            <p className="text-2xl font-bold text-green-400">LKR{analytics.cashPayments.toLocaleString()}</p>
             <p className="text-sm text-slate-400 mt-2">Total cash received</p>
           </div>
 
@@ -323,7 +323,7 @@ export default function PaymentHistory() {
               <CreditCard className="w-6 h-6 text-blue-400" />
               <h3 className="text-lg font-semibold">Card Payments</h3>
             </div>
-            <p className="text-2xl font-bold text-blue-400">₹{analytics.cardPayments.toLocaleString()}</p>
+            <p className="text-2xl font-bold text-blue-400">LKR{analytics.cardPayments.toLocaleString()}</p>
             <p className="text-sm text-slate-400 mt-2">Total card payments</p>
           </div>
 
@@ -332,7 +332,7 @@ export default function PaymentHistory() {
               <Globe className="w-6 h-6 text-purple-400" />
               <h3 className="text-lg font-semibold">Online Payments</h3>
             </div>
-            <p className="text-2xl font-bold text-purple-400">₹{analytics.onlinePayments.toLocaleString()}</p>
+            <p className="text-2xl font-bold text-purple-400">LKR{analytics.onlinePayments.toLocaleString()}</p>
             <p className="text-sm text-slate-400 mt-2">Total online payments</p>
           </div>
         </div>
@@ -461,7 +461,7 @@ export default function PaymentHistory() {
                           <span className="font-mono text-cyan-400">#{payment.invoiceNumber}</span>
                         </td>
                         <td className="py-3 px-4">
-                          <span className="font-bold text-green-400">₹{payment.amount?.toLocaleString()}</span>
+                          <span className="font-bold text-green-400">LKR{payment.amount?.toLocaleString()}</span>
                         </td>
                         <td className="py-3 px-4">
                           <div className="flex items-center space-x-2">

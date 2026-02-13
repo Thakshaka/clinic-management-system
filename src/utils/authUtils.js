@@ -32,7 +32,9 @@ export async function createUserWithRole(email, password, fullName, role) {
 
   await sendEmailVerification(user, actionCodeSettings)
 
-  await setDoc(doc(db, 'staffData', user.uid), {
+  // Store user data in appropriate collection based on role
+  const collectionName = role === 'patient' ? 'patientData' : 'staffData'
+  await setDoc(doc(db, collectionName, user.uid), {
     uid: user.uid,
     email: user.email,
     fullName: fullName,
@@ -51,28 +53,25 @@ export async function signInUser(email, password) {
   const user = userCredential.user
 
   if (user.uid) {
-    // Check if the user document exists in Firestore
-    const userDocRef = doc(db, 'staffData', user.uid)
-    const userDoc = await getDoc(userDocRef)
+    // Check if the user document exists in staffData or patientData
+    const staffDocRef = doc(db, 'staffData', user.uid)
+    const patientDocRef = doc(db, 'patientData', user.uid)
     
-    if (userDoc.exists()) {
-      // Update existing document
-      await updateDoc(userDocRef, {
+    const staffDoc = await getDoc(staffDocRef)
+    const patientDoc = await getDoc(patientDocRef)
+    
+    if (staffDoc.exists()) {
+      // Update lastLogin for staff users
+      await updateDoc(staffDocRef, {
         lastLogin: new Date().toISOString()
       })
-    } else {
-      // Create new document if it doesn't exist (fallback for users created before Firestore integration)
-      await setDoc(userDocRef, {
-        uid: user.uid,
-        email: user.email,
-        fullName: user.displayName || 'Unknown',
-        role: 'doctor', // Default role - user can update this later
-        emailVerified: user.emailVerified,
-        createdAt: new Date().toISOString(),
-        lastLogin: new Date().toISOString(),
-        verificationEmailSent: null
+    } else if (patientDoc.exists()) {
+      // Update lastLogin for patient users
+      await updateDoc(patientDocRef, {
+        lastLogin: new Date().toISOString()
       })
     }
+    // If neither exists, don't create any document - user data should have been created during signup
   }
 
   return user
@@ -102,10 +101,18 @@ export async function resendUserVerificationEmail(user) {
 
 export async function fetchUserRoleFromFirestore(uid) {
   try {
-    const userDoc = await getDoc(doc(db, 'staffData', uid))
-    if (userDoc.exists()) {
-      return userDoc.data().role
+    // Check staffData collection first (for doctors and receptionists)
+    const staffDoc = await getDoc(doc(db, 'staffData', uid))
+    if (staffDoc.exists()) {
+      return staffDoc.data().role
     }
+    
+    // Check patientData collection (for patients)
+    const patientDoc = await getDoc(doc(db, 'patientData', uid))
+    if (patientDoc.exists()) {
+      return patientDoc.data().role
+    }
+    
     return null
   } catch (error) {
     console.error('Error fetching user role:', error)

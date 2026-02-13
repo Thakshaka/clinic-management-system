@@ -272,8 +272,8 @@ export default function InvoicePdfGenerator() {
           <tr>
             <th>Description</th>
             <th class="amount-column">Quantity</th>
-            <th class="amount-column">Unit Price (₹)</th>
-            <th class="amount-column">Amount (₹)</th>
+            <th class="amount-column">Unit Price (LKR)</th>
+            <th class="amount-column">Amount (LKR)</th>
           </tr>
         </thead>
         <tbody>
@@ -290,18 +290,18 @@ export default function InvoicePdfGenerator() {
 
       <div class="summary">
         <div class="summary-row">
-          <span class="label">Subtotal:</span> ₹${invoice.subtotal?.toLocaleString() || '0'}
+          <span class="label">Subtotal:</span> LKR${invoice.subtotal?.toLocaleString() || '0'}
         </div>
         <div class="summary-row">
-          <span class="label">Tax (${invoice.taxRate || 0}%):</span> ₹${invoice.taxAmount?.toLocaleString() || '0'}
+          <span class="label">Tax (${invoice.taxRate || 0}%):</span> LKR${invoice.taxAmount?.toLocaleString() || '0'}
         </div>
         ${invoice.discount > 0 ? `
           <div class="summary-row">
-            <span class="label">Discount:</span> -₹${invoice.discount?.toLocaleString() || '0'}
+            <span class="label">Discount:</span> -LKR${invoice.discount?.toLocaleString() || '0'}
           </div>
         ` : ''}
         <div class="summary-row total">
-          <span class="label">Total Amount:</span> ₹${invoice.totalAmount?.toLocaleString() || '0'}
+          <span class="label">Total Amount:</span> LKR${invoice.totalAmount?.toLocaleString() || '0'}
         </div>
       </div>
 
@@ -453,8 +453,8 @@ export default function InvoicePdfGenerator() {
                     <tr className="bg-gray-50">
                       <th className="border border-gray-300 px-4 py-3 text-left font-medium">Description</th>
                       <th className="border border-gray-300 px-4 py-3 text-center font-medium">Quantity</th>
-                      <th className="border border-gray-300 px-4 py-3 text-right font-medium">Unit Price (₹)</th>
-                      <th className="border border-gray-300 px-4 py-3 text-right font-medium">Amount (₹)</th>
+                      <th className="border border-gray-300 px-4 py-3 text-right font-medium">Unit Price (LKR)</th>
+                      <th className="border border-gray-300 px-4 py-3 text-right font-medium">Amount (LKR)</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -482,22 +482,22 @@ export default function InvoicePdfGenerator() {
               <div className="w-80 space-y-3">
                 <div className="flex justify-between">
                   <span className="font-medium">Subtotal:</span>
-                  <span>₹{invoice.subtotal?.toLocaleString() || '0'}</span>
+                  <span>LKR{invoice.subtotal?.toLocaleString() || '0'}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="font-medium">Tax ({invoice.taxRate || 0}%):</span>
-                  <span>₹{invoice.taxAmount?.toLocaleString() || '0'}</span>
+                  <span>LKR{invoice.taxAmount?.toLocaleString() || '0'}</span>
                 </div>
                 {invoice.discount > 0 && (
                   <div className="flex justify-between text-red-600">
                     <span className="font-medium">Discount:</span>
-                    <span>-₹{invoice.discount?.toLocaleString() || '0'}</span>
+                    <span>-LKR{invoice.discount?.toLocaleString() || '0'}</span>
                   </div>
                 )}
                 <div className="border-t border-gray-300 pt-3">
                   <div className="flex justify-between text-xl font-bold text-green-600">
                     <span>Total Amount:</span>
-                    <span>₹{invoice.totalAmount?.toLocaleString() || '0'}</span>
+                    <span>LKR{invoice.totalAmount?.toLocaleString() || '0'}</span>
                   </div>
                 </div>
               </div>

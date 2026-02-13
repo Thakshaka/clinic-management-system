@@ -287,7 +287,7 @@ export default function PaymentProcessing() {
                   {/* Amount and Overdue Info */}
                   <div className="mb-4">
                     <div className="text-2xl font-bold text-green-400 mb-2">
-                      ₹{invoice.totalAmount?.toLocaleString()}
+                      LKR{invoice.totalAmount?.toLocaleString()}
                     </div>
                     {daysOverdue > 0 && (
                       <div className="text-red-400 text-sm">
@@ -348,7 +348,7 @@ export default function PaymentProcessing() {
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-slate-300">Total Amount:</span>
-                <span className="text-xl font-bold text-green-400">₹{selectedInvoice.totalAmount?.toLocaleString()}</span>
+                <span className="text-xl font-bold text-green-400">LKR{selectedInvoice.totalAmount?.toLocaleString()}</span>
               </div>
             </div>
 
@@ -382,7 +382,7 @@ export default function PaymentProcessing() {
 
             {/* Payment Amount */}
             <div className="mb-4">
-              <label className="block text-sm font-medium text-slate-300 mb-2">Payment Amount (₹)</label>
+              <label className="block text-sm font-medium text-slate-300 mb-2">Payment Amount (LKR)</label>
               <input
                 type="number"
                 min="0"

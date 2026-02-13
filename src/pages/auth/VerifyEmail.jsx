@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { FaEnvelope, FaCircleCheck, FaArrowRight, FaStar, FaUserDoctor, FaBellConcierge, FaClock, FaShieldHalved } from 'react-icons/fa6'
+import { FaEnvelope, FaCircleCheck, FaArrowRight, FaStar, FaUserDoctor, FaUserTie, FaUserInjured, FaClock, FaShieldHalved } from 'react-icons/fa6'
 
 export default function VerifyEmail() {
   const location = useLocation()
@@ -13,7 +13,8 @@ export default function VerifyEmail() {
   
   const roleMeta = {
     doctor: { title: 'Doctor', icon: FaUserDoctor, color: 'blue' },
-    receptionist: { title: 'Receptionist', icon: FaBellConcierge, color: 'cyan' }
+    receptionist: { title: 'Receptionist', icon: FaUserTie, color: 'cyan' },
+    patient: { title: 'Patient', icon: FaUserInjured, color: 'green' }
   }
   
   const currentRole = roleMeta[role] || { title: 'Staff', icon: FaUserDoctor, color: 'blue' }
@@ -83,7 +84,7 @@ export default function VerifyEmail() {
                 Account Created Successfully!
               </h2>
               <p className="text-slate-300">
-                Welcome to our healthcare team, <span className="text-blue-400 font-semibold">{fullName}</span>
+                Welcome {role === 'patient' ? 'to our clinic' : 'to our healthcare team'}, <span className="text-blue-400 font-semibold">{fullName}</span>
               </p>
             </div>
 
@@ -98,7 +99,7 @@ export default function VerifyEmail() {
                 </span>
               </div>
               <p className="text-center text-slate-300 text-sm">
-                Your account has been created with {currentRole.title.toLowerCase()} privileges
+                Your account has been created {role === 'patient' ? 'successfully' : `with ${currentRole.title.toLowerCase()} privileges`}
               </p>
             </div>
 
