@@ -48,6 +48,13 @@ import UserManagement from './pages/admin/users/UserManagement'
 import SystemMaintenance from './pages/admin/system/SystemMaintenance'
 import AdminReports from './pages/admin/reports/Reports'
 
+// Pharmacist Pages
+import Pharmacist from './pages/pharmacist/Pharmacist'
+import PharmacistPrescriptions from './pages/pharmacist/prescriptions/Prescriptions'
+import PharmacistViewPrescription from './pages/pharmacist/prescriptions/ViewPrescription'
+import Inventory from './pages/pharmacist/inventory/Inventory'
+import IssueDrugs from './pages/pharmacist/drugs/IssueDrugs'
+
 function App() {
   return (
     <Routes>
@@ -239,6 +246,33 @@ function App() {
       <Route path="/admin/reports" element={
         <ProtectedRoute requiredRole="admin">
           <AdminReports />
+        </ProtectedRoute>
+      } />
+
+      {/* Pharmacist Routes */}
+      <Route path="/pharmacist" element={
+        <ProtectedRoute requiredRole="pharmacist">
+          <Pharmacist />
+        </ProtectedRoute>
+      } />
+      <Route path="/pharmacist/prescriptions" element={
+        <ProtectedRoute requiredRole="pharmacist">
+          <PharmacistPrescriptions />
+        </ProtectedRoute>
+      } />
+      <Route path="/pharmacist/prescriptions/:id" element={
+        <ProtectedRoute requiredRole="pharmacist">
+          <PharmacistViewPrescription />
+        </ProtectedRoute>
+      } />
+      <Route path="/pharmacist/inventory" element={
+        <ProtectedRoute requiredRole="pharmacist">
+          <Inventory />
+        </ProtectedRoute>
+      } />
+      <Route path="/pharmacist/issue-drugs" element={
+        <ProtectedRoute requiredRole="pharmacist">
+          <IssueDrugs />
         </ProtectedRoute>
       } />
 

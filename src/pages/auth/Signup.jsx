@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { FaHospital, FaUserDoctor, FaUserTie, FaIdCard, FaEnvelope, FaLock, FaEye, FaEyeSlash, FaArrowRight, FaStar, FaShieldHalved, FaUserInjured, FaUserShield } from 'react-icons/fa6'
+import { FaHospital, FaUserDoctor, FaUserTie, FaIdCard, FaEnvelope, FaLock, FaEye, FaEyeSlash, FaArrowRight, FaStar, FaShieldHalved, FaUserInjured, FaUserShield, FaPrescriptionBottle } from 'react-icons/fa6'
 import { useAuth } from '../../hooks/useAuth'
 
 export default function Signup() {
@@ -23,7 +23,8 @@ export default function Signup() {
     doctor: { title: 'Doctor', icon: FaUserDoctor, description: 'Provide care with streamlined tools for appointments and records' },
     receptionist: { title: 'Receptionist', icon: FaUserTie, description: 'Coordinate patient intake, scheduling, and front-desk operations' },
     patient: { title: 'Patient', icon: FaUserInjured, description: 'Access your medical records, appointments, and prescriptions' },
-    admin: { title: 'Admin', icon: FaUserShield, description: 'Manage users, system maintenance, and generate comprehensive reports' }
+    admin: { title: 'Admin', icon: FaUserShield, description: 'Manage users, system maintenance, and generate comprehensive reports' },
+    pharmacist: { title: 'Pharmacist', icon: FaPrescriptionBottle, description: 'Manage inventory, view prescriptions, and issue medications' }
   }
 
   const currentRole = roleMeta[selectedRole] || null

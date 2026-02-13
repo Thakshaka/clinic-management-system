@@ -29,6 +29,8 @@ export default function ProtectedRoute({ children, requiredRole = null }) {
       return <Navigate to="/patient" replace />
     } else if (userRole === 'admin') {
       return <Navigate to="/admin" replace />
+    } else if (userRole === 'pharmacist') {
+      return <Navigate to="/pharmacist" replace />
     } else {
       return <Navigate to="/login" replace />
     }

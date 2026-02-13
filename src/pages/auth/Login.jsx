@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { FaHospital, FaEnvelope, FaLock, FaEye, FaEyeSlash, FaArrowRight, FaStar, FaShieldHalved, FaUserDoctor, FaUserTie, FaUserInjured, FaUserShield } from 'react-icons/fa6'
+import { FaHospital, FaEnvelope, FaLock, FaEye, FaEyeSlash, FaArrowRight, FaStar, FaShieldHalved, FaUserDoctor, FaUserTie, FaUserInjured, FaUserShield, FaPrescriptionBottle } from 'react-icons/fa6'
 import { useAuth } from '../../hooks/useAuth'
 import { fetchUserRoleFromFirestore } from '../../utils/authUtils'
 
@@ -42,6 +42,8 @@ export default function Login() {
            navigate('/patient')
          } else if (selectedRole === 'admin') {
            navigate('/admin')
+         } else if (selectedRole === 'pharmacist') {
+           navigate('/pharmacist')
          }
        } else if (userRole) {
          setError(`Selected role does not match your account role. Your account is registered as: ${userRole}`)
@@ -194,6 +196,27 @@ export default function Login() {
                         <FaUserShield className="w-6 h-6" />
                       </div>
                       <span className="text-sm font-medium">Admin</span>
+                    </div>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setSelectedRole('pharmacist')}
+                    className={`relative p-4 rounded-2xl border-2 transition-all duration-300 ${
+                      selectedRole === 'pharmacist'
+                        ? 'border-orange-400 bg-orange-400/10 shadow-lg shadow-orange-400/20'
+                        : 'border-white/20 bg-white/5 hover:border-white/40 hover:bg-white/10'
+                    }`}
+                  >
+                    <div className="flex flex-col items-center space-y-2">
+                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                        selectedRole === 'pharmacist'
+                          ? 'bg-orange-400 text-slate-900'
+                          : 'bg-white/10 text-slate-300'
+                      }`}>
+                        <FaPrescriptionBottle className="w-6 h-6" />
+                      </div>
+                      <span className="text-sm font-medium">Pharmacist</span>
                     </div>
                   </button>
                 </div>
