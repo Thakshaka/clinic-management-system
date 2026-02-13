@@ -208,7 +208,7 @@ export default function Signup() {
                         }`}>
                           <FaUserTie className="w-6 h-6" />
                         </div>
-                        <span className="text-sm font-medium">Receptionist</span>
+                        <span className="text-sm font-medium">Clinic Staff</span>
                       </div>
                     </button>
                   )}
