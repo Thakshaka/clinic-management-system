@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { FaHospital, FaEnvelope, FaLock, FaEye, FaEyeSlash, FaArrowRight, FaStar, FaShieldHalved, FaUserDoctor, FaUserTie, FaUserInjured } from 'react-icons/fa6'
+import { FaHospital, FaEnvelope, FaLock, FaEye, FaEyeSlash, FaArrowRight, FaStar, FaShieldHalved, FaUserDoctor, FaUserTie, FaUserInjured, FaUserShield } from 'react-icons/fa6'
 import { useAuth } from '../../hooks/useAuth'
 import { fetchUserRoleFromFirestore } from '../../utils/authUtils'
 
@@ -40,6 +40,8 @@ export default function Login() {
            navigate('/receptionist')
          } else if (selectedRole === 'patient') {
            navigate('/patient')
+         } else if (selectedRole === 'admin') {
+           navigate('/admin')
          }
        } else if (userRole) {
          setError(`Selected role does not match your account role. Your account is registered as: ${userRole}`)
@@ -110,7 +112,7 @@ export default function Login() {
                 <label className="block text-sm font-semibold text-slate-200">
                   Professional Role
                 </label>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-2 gap-3">
                   <button
                     type="button"
                     onClick={() => setSelectedRole('doctor')}
@@ -171,6 +173,27 @@ export default function Login() {
                         <FaUserInjured className="w-6 h-6" />
                       </div>
                       <span className="text-sm font-medium">Patient</span>
+                    </div>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setSelectedRole('admin')}
+                    className={`relative p-4 rounded-2xl border-2 transition-all duration-300 ${
+                      selectedRole === 'admin'
+                        ? 'border-blue-400 bg-blue-400/10 shadow-lg shadow-blue-400/20'
+                        : 'border-white/20 bg-white/5 hover:border-white/40 hover:bg-white/10'
+                    }`}
+                  >
+                    <div className="flex flex-col items-center space-y-2">
+                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                        selectedRole === 'admin'
+                          ? 'bg-blue-400 text-slate-900'
+                          : 'bg-white/10 text-slate-300'
+                      }`}>
+                        <FaUserShield className="w-6 h-6" />
+                      </div>
+                      <span className="text-sm font-medium">Admin</span>
                     </div>
                   </button>
                 </div>

@@ -42,6 +42,12 @@ import InvoicePdfGenerator from './pages/receptionist/billing/InvoicePdfGenerato
 import Reports from './pages/receptionist/billing/Reports'
 import LandingPage from './pages/LandingPage'
 
+// Admin Pages
+import Admin from './pages/admin/Admin'
+import UserManagement from './pages/admin/users/UserManagement'
+import SystemMaintenance from './pages/admin/system/SystemMaintenance'
+import AdminReports from './pages/admin/reports/Reports'
+
 function App() {
   return (
     <Routes>
@@ -211,6 +217,28 @@ function App() {
       <Route path="/patient/chat" element={
         <ProtectedRoute requiredRole="patient">
           <ChatAssistant />
+        </ProtectedRoute>
+      } />
+
+      {/* Admin Routes */}
+      <Route path="/admin" element={
+        <ProtectedRoute requiredRole="admin">
+          <Admin />
+        </ProtectedRoute>
+      } />
+      <Route path="/admin/users" element={
+        <ProtectedRoute requiredRole="admin">
+          <UserManagement />
+        </ProtectedRoute>
+      } />
+      <Route path="/admin/system" element={
+        <ProtectedRoute requiredRole="admin">
+          <SystemMaintenance />
+        </ProtectedRoute>
+      } />
+      <Route path="/admin/reports" element={
+        <ProtectedRoute requiredRole="admin">
+          <AdminReports />
         </ProtectedRoute>
       } />
 

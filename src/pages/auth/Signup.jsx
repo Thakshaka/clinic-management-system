@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { FaHospital, FaUserDoctor, FaUserTie, FaIdCard, FaEnvelope, FaLock, FaEye, FaEyeSlash, FaArrowRight, FaStar, FaShieldHalved, FaUserInjured } from 'react-icons/fa6'
+import { FaHospital, FaUserDoctor, FaUserTie, FaIdCard, FaEnvelope, FaLock, FaEye, FaEyeSlash, FaArrowRight, FaStar, FaShieldHalved, FaUserInjured, FaUserShield } from 'react-icons/fa6'
 import { useAuth } from '../../hooks/useAuth'
 
 export default function Signup() {
@@ -22,7 +22,8 @@ export default function Signup() {
   const roleMeta = {
     doctor: { title: 'Doctor', icon: FaUserDoctor, description: 'Provide care with streamlined tools for appointments and records' },
     receptionist: { title: 'Receptionist', icon: FaUserTie, description: 'Coordinate patient intake, scheduling, and front-desk operations' },
-    patient: { title: 'Patient', icon: FaUserInjured, description: 'Access your medical records, appointments, and prescriptions' }
+    patient: { title: 'Patient', icon: FaUserInjured, description: 'Access your medical records, appointments, and prescriptions' },
+    admin: { title: 'Admin', icon: FaUserShield, description: 'Manage users, system maintenance, and generate comprehensive reports' }
   }
 
   const currentRole = roleMeta[selectedRole] || null
@@ -155,7 +156,7 @@ export default function Signup() {
                 <label className="block text-sm font-semibold text-slate-200">
                   Professional Role
                 </label>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-2 gap-3">
                   <button
                     type="button"
                     onClick={() => setSelectedRole('doctor')}
@@ -216,6 +217,27 @@ export default function Signup() {
                         <FaUserInjured className="w-6 h-6" />
                       </div>
                       <span className="text-sm font-medium">Patient</span>
+                    </div>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setSelectedRole('admin')}
+                    className={`relative p-4 rounded-2xl border-2 transition-all duration-300 ${
+                      selectedRole === 'admin'
+                        ? 'border-blue-400 bg-blue-400/10 shadow-lg shadow-blue-400/20'
+                        : 'border-white/20 bg-white/5 hover:border-white/40 hover:bg-white/10'
+                    }`}
+                  >
+                    <div className="flex flex-col items-center space-y-2">
+                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                        selectedRole === 'admin'
+                          ? 'bg-blue-400 text-slate-900'
+                          : 'bg-white/10 text-slate-300'
+                      }`}>
+                        <FaUserShield className="w-6 h-6" />
+                      </div>
+                      <span className="text-sm font-medium">Admin</span>
                     </div>
                   </button>
                 </div>
