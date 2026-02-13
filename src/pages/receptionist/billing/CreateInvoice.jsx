@@ -87,7 +87,8 @@ export default function CreateInvoice() {
       setIsEditing(true)
       loadInvoiceData()
     }
-  }, [id, loadInvoiceData])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id])
 
   // Filter patients based on search term
   useEffect(() => {
@@ -138,7 +139,7 @@ export default function CreateInvoice() {
       console.error('Error fetching patients:', error)
       // Fallback to sample data if collection doesn't exist
       const samplePatients = [
-        { id: '1', name: 'John Doe', phone: '+91 98765 43210', email: 'john@example.com', address: '123 Main St, City', age: '35', gender: 'Male', lastVisit: '2024-01-15' },
+        { id: '1', name: 'John Doe', phone: '+94779751397', email: 'john@example.com', address: '123 Main St, City', age: '35', gender: 'Male', lastVisit: '2024-01-15' },
         { id: '2', name: 'Jane Smith', phone: '+91 98765 43211', email: 'jane@example.com', address: '456 Oak Ave, Town', age: '28', gender: 'Female', lastVisit: '2024-01-20' },
         { id: '3', name: 'Mike Johnson', phone: '+91 98765 43212', email: 'mike@example.com', address: '789 Pine Rd, Village', age: '42', gender: 'Male', lastVisit: '2024-01-18' }
       ]

@@ -224,10 +224,10 @@ export default function InvoicePdfGenerator() {
 
     return `
       <div class="header">
-        <div class="clinic-name">City Medical Center</div>
+        <div class="clinic-name">Asiri HealthCare Clinic</div>
         <div class="clinic-info">
-          123 Healthcare Avenue, Medical District<br>
-          Phone: +91 98765 43210 | Email: info@citymedical.com<br>
+          Asiri HealthCare Clinic, Colombo 07<br>
+          Phone: +94779751397 | Email: info@asirihealthcare.com<br>
           GSTIN: 27ABCDE1234F1Z5
         </div>
       </div>
@@ -313,8 +313,8 @@ export default function InvoicePdfGenerator() {
       ` : ''}
 
       <div class="footer">
-        <p>Thank you for choosing City Medical Center!</p>
-        <p>For any queries, please contact us at +91 98765 43210</p>
+        <p>Thank you for choosing Asiri HealthCare Clinic!</p>
+        <p>For any queries, please contact us at +94779751397</p>
         <p>This is a computer generated invoice and does not require a signature.</p>
       </div>
     `
@@ -396,9 +396,9 @@ export default function InvoicePdfGenerator() {
         <div className="bg-white text-gray-900 rounded-2xl shadow-2xl overflow-hidden">
           {/* Invoice Header */}
           <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 text-center">
-            <h1 className="text-3xl font-bold mb-2">City Medical Center</h1>
-            <p className="text-blue-100">123 Healthcare Avenue, Medical District</p>
-            <p className="text-blue-100">Phone: +91 98765 43210 | Email: info@citymedical.com</p>
+            <h1 className="text-3xl font-bold mb-2">Asiri HealthCare Clinic</h1>
+            <p className="text-blue-100">Asiri HealthCare Clinic, Colombo 07</p>
+            <p className="text-blue-100">Phone: +94779751397 | Email: info@asirihealthcare.com</p>
             <p className="text-blue-100 text-sm">GSTIN: 27ABCDE1234F1Z5</p>
           </div>
 
@@ -513,8 +513,8 @@ export default function InvoicePdfGenerator() {
 
             {/* Footer */}
             <div className="mt-8 text-center text-gray-500 text-sm">
-              <p>Thank you for choosing City Medical Center!</p>
-              <p>For any queries, please contact us at +91 98765 43210</p>
+              <p>Thank you for choosing Asiri HealthCare Clinic!</p>
+              <p>For any queries, please contact us at +94779751397</p>
               <p>This is a computer generated invoice and does not require a signature.</p>
             </div>
           </div>
